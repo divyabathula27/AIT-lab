@@ -1,0 +1,24 @@
+def hill_climbing(values):
+    current = 0
+
+    while True:
+        
+        left = current - 1
+        right = current + 1
+ 
+        if right < len(values) and values[right] > values[current]:
+            current = right 
+        elif left >= 0 and values[left] > values[current]:
+            current = left
+        else:
+            break
+
+    return current, values[current]
+
+values = [1, 3, 5, 7, 6, 4, 2]
+
+position, maximum = hill_climbing(values)
+
+print("Hill Climbing Result:")
+print("Position:", position)
+print("Maximum value:", maximum)
